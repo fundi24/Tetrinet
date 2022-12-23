@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>HomePage</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="jscript.js" DEFER></script>
+</head>
+<body >
+    <!--boutons ergonomie-->
+    <div id="btns">
+        <button class="button" id="btn_ClientSettings">Client Setting</button>
+        <button class="button" id="btn_Partyline">Party line</button>
+        <button class="button" id="btn_ShowFields">Show fields</button>
+        <button class="button" id="btn_WinList">Winlist</button>
+    </div>
+    <button class="button" id="btn_Home" style="display: none;"><a href="/Home">Back</a></button>
+
+     <!--Formulaire inscription client-->
+    <div id="ClientSettingsForm" style="display: inline">
+        <h1>Client Settings</h1>
+        <label for="Server">Server</label>
+        <input type="text" id="Server"><br>
+
+        <label for="Nickname">Your Nickname</label>
+        <input type="text" id="Nickname"><br>
+
+        <input type="button" value="Connect" id="AddClientSetting">
+    </div>
+
+</body>
+</html>
