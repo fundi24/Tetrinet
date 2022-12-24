@@ -1,21 +1,24 @@
 <?php
     try {
         $db = new PDO("pgsql:host=localhost;port=5433;dbname=js2204;user=js2204;password=lemi61zoivli");
-        if ($db){
-            $Server = $_POST["Server"];
-            $NickName = $_POST["Nickname"];
 
-            $result = $db->prepare("INSERT INTO Player (name, team) VALUES (?,?));
-            $result->execute([$name, $NickName]);
+        $Name = $_POST["Name"];
+        $Team = $_POST["Team"];
 
-            if ($row = $result -> fetch()){
-                echo $row[0];
-            } else {
-                echo "0";
-            }
+        $stm= $db->prepare("SELECT * FROM player WHERE name=? AND team= ?");
+        $stm->execute(array($Name, $Team));
+
+        if ($res=$stm->fetch()) {
+            echo "Connexion";
         }
+        else {
+            $stm = $db->prepare("INSERT INTO player(name, team) VALUES (?,?)");
+            $stm->execute(array($Name, $Team));
+            echo "Inscription";
+        }
+
     } catch (PDOException $e){
-        echo "No connection";
         die($e -> getMessage());
+        echo "No connection";
     }
 ?>

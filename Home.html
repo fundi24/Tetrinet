@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>HomePage</title>
+    <title>HomePagee</title>
     <link rel="stylesheet" href="style.css">
     <script src="jscript.js" DEFER></script>
 </head>
@@ -14,19 +14,36 @@
         <button class="button" id="btn_ShowFields">Show fields</button>
         <button class="button" id="btn_WinList">Winlist</button>
     </div>
-    <button class="button" id="btn_Home" style="display: none;"><a href="/Home">Back</a></button>
 
      <!--Formulaire inscription client-->
-    <div id="ClientSettingsForm" style="display: inline">
-        <h1>Client Settings</h1>
-        <label for="Server">Server</label>
-        <input type="text" id="Server"><br>
+    <form action="Inscription.php" id="ClientSettingsForm" method="post">
+        <div style="display: inline">
+            <h1>Client Settings</h1>
 
-        <label for="Nickname">Your Nickname</label>
-        <input type="text" id="Nickname"><br>
+            <label>Name</label>
+            <input type="text" name="Name"><br>
 
-        <input type="button" value="Connect" id="AddClientSetting">
-    </div>
+            <label>Team</label>
+            <input type="text" name="Team"><br>
+
+            <input type="submit" value="Connect">
+        </div>
+    </form>
+
+    <!--Partyline-->
+    <form action="Chat.php" id="PartylineForm" method="post">
+        <div style="display: inline">
+            <label>Name</label>
+            <input type="text" name="Name"><br>
+
+            <label>Message</label>
+            <input type="text" name="Message"><br>
+
+            <input type="submit" value="Envoyer">
+        </div>
+    </form>
+
+
 
 </body>
 </html>
