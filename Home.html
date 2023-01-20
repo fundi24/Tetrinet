@@ -2,48 +2,79 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>HomePagee</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Tetris</title>
+   <!-- <link rel="stylesheet" href="style.css">-->
     <script src="jscript.js" DEFER></script>
 </head>
 <body >
-    <!--boutons ergonomie-->
-    <div id="btns">
-        <button class="button" id="btn_ClientSettings">Client Setting</button>
-        <button class="button" id="btn_Partyline">Party line</button>
-        <button class="button" id="btn_ShowFields">Show fields</button>
-        <button class="button" id="btn_WinList">Winlist</button>
-    </div>
+<!--boutons ergonomie-->
+<div id="btns">
+    <button class="button" id="btn_ClientSettings">Client Setting</button>
+    <button class="button" id="btn_Partyline">Party line</button>
+    <button class="button" id="btn_WinList">Winlist</button>
+</div>
 
-     <!--Formulaire inscription client-->
-    <form action="Inscription.php" id="ClientSettingsForm" method="post">
-        <div style="display: inline">
-            <h1>Client Settings</h1>
+<!--Formulaire inscription/connection client-->
+<div id="ConnexionForm" style="display: none;">
+    <h1>Client Settings</h1>
 
-            <label>Name</label>
-            <input type="text" name="Name"><br>
+    <label for="Name">Name</label>
+    <input type="text" id="Name"><br>
 
-            <label>Team</label>
-            <input type="text" name="Team"><br>
+    <label for="Team">Team</label>
+    <input type="text" id="Team"><br>
 
-            <input type="submit" value="Connect">
-        </div>
-    </form>
+    <input type="button" value="Se connecter" id="AddConnect">
+</div>
 
-    <!--Partyline-->
-    <form action="Chat.php" id="PartylineForm" method="post">
-        <div style="display: inline">
-            <label>Name</label>
-            <input type="text" name="Name"><br>
+<!--Partyline-->
+<div id="chat" style="display: none;">
+    <h1>Party line</h1>
 
-            <label>Message</label>
-            <input type="text" name="Message"><br>
+    <table id="TableMsg" class="table">
+    </table>
+    <br>
+</div>
 
-            <input type="submit" value="Envoyer">
-        </div>
-    </form>
+<div id="Partyline" style="display: none;">
 
+    <label for="NameParty">Name</label>
+    <input type="text" id="NameParty"><br>
 
+    <label for="TeamParty">Team</label>
+    <input type="text" id="TeamParty"><br>
+
+    <label for="Message">Message</label>
+    <input type="text" id="Message"><br>
+
+    <input type="button" value="Envoyer" id="AddMessage">
+</div>
+
+<!--Jeu-->
+<div id="tetris" style="display: none;">
+
+    <h1>Game</h1>
+
+    <h3><div id="displayPlayer"></div></h3>
+
+    <canvas id="tetrisCanva" width="240" height="400"></canvas>
+    <br>
+    Score : <div id="score">0</div>
+    <br>
+    Ligne : <div id="ligne">0</div>
+    Prochaine piece :
+    <br>
+    <canvas id="next" width="100" height="100"></canvas>
+    <br>
+    <input type="button" value="Se deconnecter" id="RestartGame">
+</div>
+
+<div id="WinList" style="display: none;">
+
+    <h1>WinList</h1>
+
+    <div id="winner"></div>
+</div>
 
 </body>
 </html>
