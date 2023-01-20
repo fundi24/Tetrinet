@@ -2,19 +2,22 @@
 try {
     $db = new PDO("pgsql:host=localhost;port=5433;dbname=js2204;user=js2204;password=lemi61zoivli");
 
-    $Name = $_POST["Name"];
-    $Message = $_POST["Message"];
+    $NameParty = $_POST["para1"];
+    $TeamParty = $_POST["para2"];
+    $Message = $_POST["para3"];
 
-    $stm= $db->prepare("SELECT pid FROM player WHERE name=?");
-    $stm->execute(array($Name));
+    if(isset($NameParty) && $NameParty !== "" && isset($TeamParty) && $TeamParty !== "" && isset($Message) && $Message !== ""){
 
-    if ($res=$stm->fetch()) {
-        $stm = $db->prepare("INSERT INTO msg(pid, msg) VALUES (?,?)");
-        $stm->execute(array($res['pid'], $Message));
+        $stm= $db->prepare("SELECT pid FROM player WHERE name=? AND team=?");
+        $stm->execute(array($NameParty, $TeamParty));
+
+        if ($res=$stm->fetch()) {
+            $stm = $db->prepare("INSERT INTO msg(pid, msg) VALUES (?,?)");
+            $stm->execute(array($res['pid'], $Message));
+        }
     }
 
 } catch (PDOException $e){
     die($e -> getMessage());
     echo "No connection";
 }
-?>
